@@ -47,9 +47,9 @@ var websites = {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.contextMenus.create({ type: 'separator'   , id: 'msSeparator1' , contexts: ['selection'] });
-  chrome.contextMenus.create({ title: 'Search all' , id: 'msSearchAll'  , contexts: ['selection'] });
-  chrome.contextMenus.create({ type: 'separator'   , id: 'msSeparator2' , contexts: ['selection'] });
+  chrome.contextMenus.create({ type: 'separator'              , id: 'msSeparator1' , contexts: ['selection'] });
+  chrome.contextMenus.create({ title: 'Search all for \'%s\'' , id: 'msSearchAll'  , contexts: ['selection'] });
+  chrome.contextMenus.create({ type: 'separator'              , id: 'msSeparator2' , contexts: ['selection'] });
 
   for (var key in websites) {
     chrome.contextMenus.create({
