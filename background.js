@@ -47,11 +47,17 @@ var websites = {
 }
 
 chrome.runtime.onInstalled.addListener(function() {
+  var sortedKeys;
+
   chrome.contextMenus.create({ type: 'separator'              , id: 'msSeparator1' , contexts: ['selection'] });
   chrome.contextMenus.create({ title: 'Search all for \'%s\'' , id: 'msSearchAll'  , contexts: ['selection'] });
   chrome.contextMenus.create({ type: 'separator'              , id: 'msSeparator2' , contexts: ['selection'] });
 
-  for (var key in websites) {
+  sortedKeys = Object.keys(websites).sort();
+
+  for (var i in sortedKeys) {
+    var key = sortedKeys[i];
+
     chrome.contextMenus.create({
       title: websites[key].title,
       id: key,
